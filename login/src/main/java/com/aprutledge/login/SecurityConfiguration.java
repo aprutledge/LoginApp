@@ -47,6 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers("/recoverpass").permitAll()
+				.antMatchers("/securityquestion").permitAll()
 				.antMatchers("/home/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.antMatchers("/admin/**").hasAnyAuthority("SUPER_USER","ADMIN_USER")
 				.anyRequest().authenticated()
@@ -58,6 +59,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.successHandler(successHandler)
 				.usernameParameter("email")
 				.passwordParameter("password")
+				.and()
+				// form forgot password
+				.csrf().disable().formLogin()
+				.loginPage("/recoverpass")
+				.failureUrl("/recoverpass?error=true")
+				.successHandler(successHandler)
+				.usernameParameter("email")
 				.and()
 				// logout
 				.logout()

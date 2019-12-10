@@ -27,9 +27,16 @@ public class AuthenticationController {
 	}
 	
 	@RequestMapping(value = "/recoverpass", method = RequestMethod.GET)
-	public ModelAndView recoverpass() {
+	public ModelAndView recoverPass() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("recoverpass"); // resources/template/recoverpass.html
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/securityquestion", method = RequestMethod.GET)
+	public ModelAndView securityQuestion() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("securityquestion"); // resources/template/securityquestion.html
 		return modelAndView;
 	}
 
