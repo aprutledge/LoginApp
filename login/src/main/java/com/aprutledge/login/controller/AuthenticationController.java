@@ -25,6 +25,13 @@ public class AuthenticationController {
 		modelAndView.setViewName("login"); // resources/template/login.html
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/recoverpass", method = RequestMethod.GET)
+	public ModelAndView recoverpass() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("recoverpass"); // resources/template/recoverpass.html
+		return modelAndView;
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
